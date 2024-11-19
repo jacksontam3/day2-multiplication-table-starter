@@ -2,8 +2,7 @@ package com.tw;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 class MultiplicationTableBuilderTest {
     @Test
@@ -141,6 +140,20 @@ class MultiplicationTableBuilderTest {
 
         // Then
         assertFalse(isValid);
+    }
+
+    @Test
+    void should_return_string_when_generateExpression_given_start_2_and_end_4(){
+        // Given
+        MultiplicationTableBuilder multiplicationTableBuilder = new MultiplicationTableBuilder();
+        int start = 2;
+        int end = 4;
+
+        // When
+        String expression = multiplicationTableBuilder.generateExpression(start, end);
+
+        // Then
+        assertEquals("2*4=8", expression);
     }
 
 
